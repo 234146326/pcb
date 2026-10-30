@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCBMaster | Advanced Custom PCB Fabrication & Assembly Services</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        industrial: {
+                            dark: '#0B132B',
+                            card: '#1C2541',
+                            accent: '#3A506B',
+                            highlight: '#00F5D4',
+                            gold: '#C5A880'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        [dir="rtl"] { font-family: 'Tajawal', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- ================= 顶部导航栏 (Header) ================= -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- LOGO: 文字简易设计 -->
+            <a href="#" class="flex items-center space-x-2 group">
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-black text-2xl px-3 py-1.5 rounded tracking-wider shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition">
+                    PCB<span class="text-white">MASTER</span>
+                </div>
+            </a>
+
+            <!-- 简易导航 (Simple Navigation) -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#products" class="hover:text-cyan-400 transition" data-i18n="nav_products">Products</a>
+                <a href="#capabilities" class="hover:text-cyan-400 transition" data-i18n="nav_capabilities">Capabilities</a>
+                <a href="#about" class="hover:text-cyan-400 transition" data-i18n="nav_about">About Us</a>
+                <a href="#contact" class="hover:text-cyan-400 transition" data-i18n="nav_contact">Contact Us</a>
+            </nav>
+
+            <!-- 右侧：语言切换器与CTA按钮 -->
+            <div class="flex items-center space-x-4">
+                <!-- 语言下拉框 -->
+                <div class="relative">
+                    <select id="lang-switcher" onchange="changeLanguage(this.value)" class="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-cyan-500 cursor-pointer">
+                        <option value="en" selected>English</option>
+                        <option value="fr">Français</option>
+                        <option value="ar">العربية</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <!-- 快捷报价按钮 -->
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-sm px-5 py-2.5 rounded-lg transition shadow-md shadow-cyan-500/10" data-i18n="nav_quote">
+                    Instant Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 主横幅 (Hero Banner) ================= -->
+    <section class="relative min-h-[85vh] flex items-center justify-center bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden border-b border-slate-800/60">
+        <!-- 背景科技风光效与无水印高端工厂/电路图 -->
+        <div class="absolute inset-0 z-0 opacity-25 mix-blend-luminosity">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80" alt="Advanced SMT Factory" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent z-10"></div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-8 space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full text-cyan-400 text-xs font-semibold tracking-wide uppercase">
+                    <i class="fa-solid fa-microchip"></i> <span data-i18n="hero_badge">Industry-Leading High-End PCB Solutions</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                    <span data-i18n="hero_title_1">Precision Custom PCB</span> <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500" data-i18n="hero_title_2">Fabrication & Assembly</span>
+                </h1>
+                <p class="text-lg text-slate-300 max-w-2xl leading-relaxed" data-i18n="hero_desc">
+                    Empowering global high-tech engineering with military-grade rigid-flex circuits, high-frequency boards, and ultra-dense multilayer PCB manufacturing backed by smart factory automation.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#contact" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-8 py-3.5 rounded-lg transition shadow-lg shadow-cyan-500/20 text-sm flex items-center space-x-2">
+                        <span data-i18n="hero_btn_primary">Submit Gerber & Quote</span> <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
+                    </a>
+                    <a href="#products" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold px-8 py-3.5 rounded-lg transition text-sm" data-i18n="hero_btn_secondary">
+                        Explore Products
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 高端 PCB 产品展示 (Products) ================= -->
+    <section id="products" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold text-white tracking-tight sm:text-4xl mb-4" data-i18n="prod_section_title">High-End PCB Product Portfolio</h2>
+            <p class="text-slate-400 text-base" data-i18n="prod_section_desc">Manufactured using state-of-the-art lithography, laser drilling, and advanced material science for aerospace, medical, and industrial automation.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 产品 1: HDI Multilayer PCB -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition group">
+                <div class="h-56 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=800&q=80" alt="HDI PCB" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute top-3 right-3 bg-slate-950/80 text-cyan-400 text-xs px-2.5 py-1 rounded-md font-mono border border-slate-800">Up to 40L</div>
+                </div>
+                <div class="p-6 space-y-3">
+                    <h3 class="text-xl font-semibold text-white" data-i18n="prod_1_title">High-Density Interconnect (HDI) PCBs</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="prod_1_desc">Any-layer laser vias, ultra-fine lines/spaces down to 2/2mil, tailored for compact telecommunication and smartphone mainboards.</p>
+                </div>
+            </div>
+
+            <!-- 产品 2: Rigid-Flex PCB -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition group">
+                <div class="h-56 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Rigid-Flex PCB" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute top-3 right-3 bg-slate-950/80 text-cyan-400 text-xs px-2.5 py-1 rounded-md font-mono border border-slate-800">Flex & Rigid Hybrid</div>
+                </div>
+                <div class="p-6 space-y-3">
+                    <h3 class="text-xl font-semibold text-white" data-i18n="prod_2_title">Rigid-Flex & Flex Circuits</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="prod_2_desc">Seamlessly combining rigid board strength with dynamic flexibility. Ideal for aerospace sensors, medical implants, and wearables.</p>
+                </div>
+            </div>
+
+            <!-- 产品 3: High-Frequency RF PCB -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 transition group">
+                <div class="h-56 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=800&q=80" alt="High Frequency PCB" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute top-3 right-3 bg-slate-950/80 text-cyan-400 text-xs px-2.5 py-1 rounded-md font-mono border border-slate-800">Rogers / Taconic</div>
+                </div>
+                <div class="p-6 space-y-3">
+                    <h3 class="text-xl font-semibold text-white" data-i18n="prod_3_title">High-Frequency & Microwave PCBs</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="prod_3_desc">Built with specialized PTFE and ceramic substrates (Rogers, Isola) ensuring minimal signal loss in 5G infrastructure and radar systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 核心工艺能力 (Capabilities) ================= -->
+    <section id="capabilities" class="py-20 bg-slate-900/40 border-y border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div class="p-6 bg-slate-900 rounded-xl border border-slate-800">
+                <div class="text-3xl font-extrabold text-cyan-400 mb-2">40+</div>
+                <div class="text-sm text-slate-300 font-medium" data-i18n="cap_1">Max Layer Count</div>
+            </div>
+            <div class="p-6 bg-slate-900 rounded-xl border border-slate-800">
+                <div class="text-3xl font-extrabold text-cyan-400 mb-2">2 / 2 mil</div>
+                <div class="text-sm text-slate-300 font-medium" data-i18n="cap_2">Min Trace / Space</div>
+            </div>
+            <div class="p-6 bg-slate-900 rounded-xl border border-slate-800">
+                <div class="text-3xl font-extrabold text-cyan-400 mb-2">99.9%</div>
+                <div class="text-sm text-slate-300 font-medium" data-i18n="cap_3">On-Time Delivery Rate</div>
+            </div>
+            <div class="p-6 bg-slate-900 rounded-xl border border-slate-800">
+                <div class="text-3xl font-extrabold text-cyan-400 mb-2">24/7</div>
+                <div class="text-sm text-slate-300 font-medium" data-i18n="cap_4">Engineering Support</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 关于我们 & 联系我们 (About Us & Contact Us - 稳重体面风格) ================= -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16" id="about">
+        <!-- 关于我们 -->
+        <div class="space-y-6">
+            <div class="inline-block text-cyan-400 text-xs font-bold tracking-widest uppercase bg-cyan-500/10 px-3 py-1 rounded border border-cyan-500/20" data-i18n="about_tag">Corporate Profile</div>
+            <h2 class="text-3xl font-bold text-white tracking-tight" data-i18n="about_title">About PCBMaster</h2>
+            <p class="text-slate-300 leading-relaxed text-base" data-i18n="about_desc1">
+                Founded with a steadfast commitment to engineering precision and reliability, PCBMaster has evolved into a trusted global partner for high-complexity custom circuit fabrication and turnkey assembly. 
+            </p>
+            <p class="text-slate-400 leading-relaxed text-sm" data-i18n="about_desc2">
+                Operating advanced manufacturing facilities equipped with automated optical inspection (AOI), X-ray testing, and vacuum lamination systems, we serve tier-one enterprises across automotive, telecommunications, medical, and industrial sectors worldwide. Our dedication adheres strictly to ISO9001, IATF16949, and UL standards.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-2">
+                <div class="flex items-center space-x-3 text-slate-300 text-sm">
+                    <i class="fa-solid fa-circle-check text-cyan-400"></i> <span data-i18n="about_feat_1">Strict ISO Certified Quality</span>
+                </div>
+                <div class="flex items-center space-x-3 text-slate-300 text-sm">
+                    <i class="fa-solid fa-circle-check text-cyan-400"></i> <span data-i18n="about_feat_2">ITAR & RoHS Compliance</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 联系我们 & 留邮箱入口 (Contact & Inquiry Form) -->
+        <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl relative" id="contact">
+            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="contact_title">Get in Touch with Our Engineers</h3>
+            <p class="text-slate-400 text-sm mb-6" data-i18n="contact_subtitle">Submit your requirements or leave your email for an instant consultation and quotation.</p>
+            
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1" data-i18n="form_email">Email Address *</label>
+                    <input type="email" required placeholder="engineer@company.com" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-cyan-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1" data-i18n="form_project">Project Details / Specifications</label>
+                    <textarea rows="3" placeholder="Layers, quantity, material requirements..." class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-cyan-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3.5 rounded-lg transition text-sm shadow-lg shadow-cyan-500/10" data-i18n="form_submit">
+                    Send Inquiry
+                </button>
+            </form>
+
+            <div class="mt-6 pt-6 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+                <span><i class="fa-solid fa-envelope text-cyan-400 mr-2"></i> Direct Email: <strong class="text-slate-200">ad@36.ac.cn</strong></span>
+                <span data-i18n="form_secure">100% Confidentiality</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 底部版权 (Footer) ================= -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <div class="text-slate-400 font-semibold text-base">PCB<span class="text-cyan-400">MASTER</span></div>
+            <p>&copy; 2026 PCBMaster Inc. All rights reserved. Global Custom PCB Fabrication & Assembly.</p>
+            <p class="text-xs">Contact: ad@36.ac.cn</p>
+        </div>
+    </footer>
+
+    <!-- ================= 多语言实现脚本 (Multi-language Support) ================= -->
+    <script>
+        const translations = {
+            en: {
+                nav_products: "Products",
+                nav_capabilities: "Capabilities",
+                nav_about: "About Us",
+                nav_contact: "Contact Us",
+                nav_quote: "Instant Quote",
+                hero_badge: "Industry-Leading High-End PCB Solutions",
+                hero_title_1: "Precision Custom PCB",
+                hero_title_2: "Fabrication & Assembly",
+                hero_desc: "Empowering global high-tech engineering with military-grade rigid-flex circuits, high-frequency boards, and ultra-dense multilayer PCB manufacturing backed by smart factory automation.",
+                hero_btn_primary: "Submit Gerber & Quote",
+                hero_btn_secondary: "Explore Products",
+                prod_section_title: "High-End PCB Product Portfolio",
+                prod_section_desc: "Manufactured using state-of-the-art lithography, laser drilling, and advanced material science for aerospace, medical, and industrial automation.",
+                prod_1_title: "High-Density Interconnect (HDI) PCBs",
+                prod_1_desc: "Any-layer laser vias, ultra-fine lines/spaces down to 2/2mil, tailored for compact telecommunication and smartphone mainboards.",
+                prod_2_title: "Rigid-Flex & Flex Circuits",
+                prod_2_desc: "Seamlessly combining rigid board strength with dynamic flexibility. Ideal for aerospace sensors, medical implants, and wearables.",
+                prod_3_title: "High-Frequency & Microwave PCBs",
+                prod_3_desc: "Built with specialized PTFE and ceramic substrates (Rogers, Isola) ensuring minimal signal loss in 5G infrastructure and radar systems.",
+                cap_1: "Max Layer Count",
+                cap_2: "Min Trace / Space",
+                cap_3: "On-Time Delivery Rate",
+                cap_4: "Engineering Support",
+                about_tag: "Corporate Profile",
+                about_title: "About PCBMaster",
+                about_desc1: "Founded with a steadfast commitment to engineering precision and reliability, PCBMaster has evolved into a trusted global partner for high-complexity custom circuit fabrication and turnkey assembly.",
+                about_desc2: "Operating advanced manufacturing facilities equipped with automated optical inspection (AOI), X-ray testing, and vacuum lamination systems, we serve tier-one enterprises across automotive, telecommunications, medical, and industrial sectors worldwide.",
+                about_feat_1: "Strict ISO Certified Quality",
+                about_feat_2: "ITAR & RoHS Compliance",
+                contact_title: "Get in Touch with Our Engineers",
+                contact_subtitle: "Submit your requirements or leave your email for an instant consultation and quotation.",
+                form_email: "Email Address *",
+                form_project: "Project Details / Specifications",
+                form_submit: "Send Inquiry",
+                form_secure: "100% Confidentiality"
+            },
+            fr: {
+                nav_products: "Produits",
+                nav_capabilities: "Capacités",
+                nav_about: "À propos",
+                nav_contact: "Contact",
+                nav_quote: "Devis Instantané",
+                hero_badge: "Solutions PCB Haut de Gamme de Pointe",
+                hero_title_1: "Fabrication de PCB sur Mesure",
+                hero_title_2: "& Assemblage de Précision",
+                hero_desc: "Soutien à l'ingénierie mondiale de haute technologie avec des circuits rigid-flex de qualité militaire, des cartes haute fréquence et des PCB multicouches ultra-denses.",
+                hero_btn_primary: "Soumettre Gerber & Devis",
+                hero_btn_secondary: "Explorer les Produits",
+                prod_section_title: "Portefeuille de Produits PCB Haut de Gamme",
+                prod_section_desc: "Fabriqués à l'aide de la lithographie de pointe, du perçage laser et de la science des matériaux avancée pour l'aérospatiale et le médical.",
+                prod_1_title: "Circuits Imprimés HDI",
+                prod_1_desc: "Vias laser toutes couches, pistes et espaces ultra-fins jusqu'à 2/2mil, conçus pour les télécommunications et smartphones.",
+                prod_2_title: "Circuits Rigides-Flexibles",
+                prod_2_desc: "Combinant la solidité de la carte rigide et la flexibilité dynamique. Idéal pour les capteurs aérospatiaux et dispositifs médicaux.",
+                prod_3_title: "Circuits Haute Fréquence & Micro-ondes",
+                prod_3_desc: "Construits avec des substrats PTFE et céramique spécialisés (Rogers, Isola) assurant une perte de signal minimale dans les réseaux 5G.",
+                cap_1: "Nombre Max de Couches",
+                cap_2: "Piste / Espace Min",
+                cap_3: "Taux de Livraison à Temps",
+                cap_4: "Support Technique",
+                about_tag: "Profil d'Entreprise",
+                about_title: "À Propos de PCBMaster",
+                about_desc1: "Fondé avec un engagement indéfectible envers la précision et la fiabilité, PCBMaster est devenu un partenaire mondial de confiance pour la fabrication de circuits complexes.",
+                about_desc2: "Exploitant des installations de pointe équipées de systèmes d'inspection optique automatisée (AOI), nous servons les plus grandes entreprises mondiales.",
+                about_feat_1: "Qualité Certifiée ISO Stricte",
+                about_feat_2: "Conformité ITAR & RoHS",
+                contact_title: "Contactez Nos Ingénieurs",
+                contact_subtitle: "Soumettez vos besoins ou laissez votre e-mail pour une consultation et un devis instantanés.",
+                form_email: "Adresse E-mail *",
+                form_project: "Détails du Projet / Spécifications",
+                form_submit: "Envoyer la Demande",
+                form_secure: "Confidentialité à 100%"
+            },
+            ar: {
+                nav_products: "المنتجات",
+                nav_capabilities: "القدرات الصناعية",
+                nav_about: "من نحن",
+                nav_contact: "اتصل بنا",
+                nav_quote: "طلب عرض سعر",
+                hero_badge: "حلول لوحات الدوائر المطبوعة المتطورة الرائدة في الصناعة",
+                hero_title_1: "تصنيع وتجميع لوحات",
+                hero_title_2: "الدوائر المطبوعة المخصصة بدقة",
+                hero_desc: "تمكين هندسة التكنولوجيا الفائقة العالمية بدوائر مرنة صلبة بدرجة عسكرية، ولوحات عالية التردد، وتصنيع لوحات متعددة الطبقات فائقة الكثافة.",
+                hero_btn_primary: "أرسل ملفات جربر واحصل على عرض سعر",
+                hero_btn_secondary: "استكشاف المنتجات",
+                prod_section_title: "محفظة منتجات PCB عالية الجودة",
+                prod_section_desc: "تم تصنيعها باستخدام أحدث تقنيات الطباعة الحجرية والحفر بالليزر وعلوم المواد المتقدمة للطيران والفضاء والطب.",
+                prod_1_title: "لوحات التوصيل عالي الكثافة (HDI)",
+                prod_1_desc: "فتحات ليزر لجميع الطبقات، خطوط ومسافات رفيعة للغاية تصل إلى 2/2 ميل، مصممة خصيصاً للاتصالات والهواتف الذكية.",
+                prod_2_title: "الدوائر الصلبة والمرنة",
+                prod_2_desc: "تجمع بسلاسة بين قوة اللوحة الصلبة والمرونة الديناميكية. مثالية لمستشعرات الطيران والأجهزة الطبية القابلة للارتداء.",
+                prod_3_title: "لوحات التردد العالي والميكروويف",
+                prod_3_desc: "مصنوعة من ركائز PTFE والسيراميك المتخصصة (Rogers, Isola) لضمان الحد الأدنى من فقدان الإشارة في شبكات الجيل الخامس.",
+                cap_1: "الحد الأقصى للطبقات",
+                cap_2: "أدق أثر / مسافة",
+                cap_3: "معدل التسليم في الوقت المحدد",
+                cap_4: "الدعم الهندسي",
+                about_tag: "الملف التعريفي للشركة",
+                about_title: "عن شركة PCBMaster",
+                about_desc1: "تأسست PCBMaster التزاماً راسخاً بالدقة الهندسية والموثوقية، لتتطور وتصبح شريكاً عالمياً موثوقاً لتصنيع الدوائر المخصصة المعقدة.",
+                about_desc2: "تشغيل مرافق تصنيع متقدمة مجهزة بأنظمة الفحص البصري الآلي (AOI)، واختبار الأشعة السينية، لخدمة عملاء الفئات الأولى في قطاعات السيارات والاتصالات.",
+                about_feat_1: "جودة صارمة معتمدة من ISO",
+                about_feat_2: "امتثال معايير ITAR و RoHS",
+                contact_title: "تواصل مع مهندسينا",
+                contact_subtitle: "أرسل متطلباتك أو اترك بريدك الإلكتروني للحصول على استشارة فورية وعرض سعر.",
+                form_email: "عنوان البريد الإلكتروني *",
+                form_project: "تفاصيل المشروع / المواصفات",
+                form_submit: "إرسال الاستفسار",
+                form_secure: "سرية تامة 100%"
+            },
+            zh: {
+                nav_products: "产品服务",
+                nav_capabilities: "工艺能力",
+                nav_about: "关于我们",
+                nav_contact: "联系我们",
+                nav_quote: "立即报价",
+                hero_badge: "行业领先的高端 PCB 定制解决方案",
+                hero_title_1: "精密高端 PCB",
+                hero_title_2: "定制制造与SMT组装",
+                hero_desc: "以智能工厂自动化为依托，为全球高科技工程提供军工级刚挠结合板、高频微波板及超高密度多层 PCB 制造服务。",
+                hero_btn_primary: "提交 Gerber 文件获取报价",
+                hero_btn_secondary: "探索高端产品",
+                prod_section_title: "高端 PCB 产品矩阵",
+                prod_section_desc: "采用最先进的先进光刻、激光钻孔及材料科学工艺，广泛应用于航空航天、医疗医疗器械与工业自动化。",
+                prod_1_title: "高密度互连 (HDI) PCB",
+                prod_1_desc: "任意层激光盲埋孔，线宽线距达 2/2mil，专为高端通信设备与智能终端主板定制。",
+                prod_2_title: "刚挠结合板 (Rigid-Flex)",
+                prod_2_desc: "无缝结合刚性电路的强度与柔性电路的弯曲度，是航空传感器与高端穿戴设备的理想选择。",
+                prod_3_title: "高频高速微波 PCB",
+                prod_3_desc: "采用 Rogers、Isola 等特种PTFE及陶瓷基材，确保 5G 基础设施与雷达系统中的信号损耗降至最低。",
+                cap_1: "最高层数支持",
+                cap_2: "最小线宽 / 线距",
+                cap_3: "准时交付率",
+                cap_4: "资深工程师支持",
+                about_tag: "公司简介",
+                about_title: "关于 PCBMaster",
+                about_desc1: "自成立以来，PCBMaster 始终秉持对工程精度与卓越可靠性的坚定承诺，已成长为全球高复杂度定制电路制造与一站式组装的信赖伙伴。",
+                about_desc2: "我们拥有配备自动光学检测（AOI）、X射线无损检测及真空层压系统的现代化智能工厂，服务于全球汽车电子、通信、医疗及工业领域的头部企业。严格遵循 ISO9001 与 IATF16949 质量体系。",
+                about_feat_1: "严格的 ISO 质量认证体系",
+                about_feat_2: "符合 ITAR 及 RoHS 标准",
+                contact_title: "与我们的资深工程师取得联系",
+                contact_subtitle: "提交您的规格需求或留下您的电子邮箱，我们将为您提供专业咨询与极速报价。",
+                form_email: "电子邮箱 *",
+                form_project: "项目详情 / 技术规格说明",
+                form_submit: "提交需求咨询",
+                form_secure: "100% 商业机密安全保障"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const root = document.getElementById('html-root');
+            root.setAttribute('lang', lang);
+            
+            // 阿拉伯语支持 RTL 布局
+            if (lang === 'ar') {
+                root.setAttribute('dir', 'rtl');
+            } else {
+                root.setAttribute('dir', 'ltr');
+            }
+
+            // 更新页面所有带有 data-i18n 属性的文本
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert("Thank you! Your inquiry has been received. Our engineering team will contact you shortly via ad@36.ac.cn.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
